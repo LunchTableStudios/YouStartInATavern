@@ -23,5 +23,16 @@ namespace YouStartInATavern.MainMenu
         {
             buttons[0].Select();
         }
+
+        void Update()
+        {
+            for( int i = 0; i < ReInput.players.playerCount; i++ )
+            {
+                if( ReInput.players.GetPlayer( i ).GetButtonDown( "Menu Up" ) )
+                {
+                    Debug.Log( "UP" );
+                }
+            }
+        }
     }
 }

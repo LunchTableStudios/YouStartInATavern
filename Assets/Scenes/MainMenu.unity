@@ -740,10 +740,22 @@ MonoBehaviour:
       _assignMouseOnStart: 1
       _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 1
+    - _id: 1
+      _name: Player0
+      _descriptiveName: Player0
+      _startPlaying: 1
+      _defaultJoystickMaps: []
+      _defaultMouseMaps: []
+      _defaultKeyboardMaps: []
+      _defaultCustomControllerMaps: []
+      _startingCustomControllers: []
+      _assignMouseOnStart: 1
+      _assignKeyboardOnStart: 1
+      _excludeFromControllerAutoAssignment: 0
     actions:
     - _id: 0
-      _name: Vertical Select
-      _type: 0
+      _name: Menu Up
+      _type: 1
       _descriptiveName: Vertical Menu Selection
       _positiveDescriptiveName: Up
       _negativeDescriptiveName: Down
@@ -751,9 +763,9 @@ MonoBehaviour:
       _userAssignable: 1
       _categoryId: 0
     - _id: 1
-      _name: Horizontal Select
-      _type: 0
-      _descriptiveName: Horizontal Menu Selection
+      _name: Menu Down
+      _type: 1
+      _descriptiveName: Vertical Menu Selection
       _positiveDescriptiveName: Right
       _negativeDescriptiveName: Left
       _behaviorId: 0
@@ -847,7 +859,7 @@ MonoBehaviour:
         _actionId: 0
         _elementType: 0
         _elementIdentifierId: 1
-        _axisRange: 0
+        _axisRange: 1
         _invert: 0
         _axisContribution: 0
         _keyboardKeyCode: 0
@@ -857,8 +869,8 @@ MonoBehaviour:
       - _actionCategoryId: 0
         _actionId: 1
         _elementType: 0
-        _elementIdentifierId: 0
-        _axisRange: 0
+        _elementIdentifierId: 1
+        _axisRange: 2
         _invert: 0
         _axisContribution: 0
         _keyboardKeyCode: 0
@@ -1026,7 +1038,7 @@ MonoBehaviour:
         _modifierKey3: 0
     customControllerMaps: []
     customControllers: []
-    playerIdCounter: 1
+    playerIdCounter: 2
     actionIdCounter: 4
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
