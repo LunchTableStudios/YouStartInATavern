@@ -8,31 +8,38 @@ namespace YouStartInATavern.MainMenu
 
     public class MainMenuSceneController : SceneController
     {
+
+        #region Private Properties
         private Canvas canvas;
-        public Button[] buttons;
+        private Button[] buttons;
+        private Button selectedButton;
+        #endregion
 
         void Awake()
         {
             canvas = gameObject.GetComponentInChildren<Canvas>();
             buttons = canvas.GetComponentsInChildren<Button>();
-            
-            
         }
 
         void Start()
         {
-            buttons[0].Select();
+            SetSelectedButton(0);
         }
 
         void Update()
         {
-            for( int i = 0; i < ReInput.players.playerCount; i++ )
-            {
-                if( ReInput.players.GetPlayer( i ).GetButtonDown( "Menu Up" ) )
-                {
-                    Debug.Log( "UP" );
-                }
-            }
+            if( ReInput.players.SystemPlayer.GetButtonDown( "Menu Up" ) )
+                SetSelectedButton( System.Array.IndexOf( buttons, selectedButton ) - 1 );
+            else if( ReInput.players.SystemPlayer.GetButtonDown( "Menu Down" ) )
+                SetSelectedButton( System.Array.IndexOf( buttons, selectedButton ) + 1 );
+        }
+
+        public void SetSelectedButton( int _index )
+        {
+            if( _index < 0 || _index >= buttons.Length ) return;
+
+            selectedButton = buttons[_index];
+            selectedButton.Select();
         }
     }
 }
