@@ -15,7 +15,7 @@ namespace YouStartInATavern.Gameplay
                 int nextPlayerID = GameManager.Instance.playerManager.NextInactivePlayer;
                 if( nextPlayerID != -1 )
                 {
-                    Player nextPlayer = ReInput.players.GetPlayer( nextPlayerID );
+                    Player nextPlayer = ReInput.players.GetPlayer( nextPlayerID + 1 );
                     IList<InputActionSourceData> inputSources = ReInput.players.GetSystemPlayer().GetCurrentInputSources( "Join Game" );
                     foreach( InputActionSourceData source in inputSources )
                     {
@@ -23,8 +23,6 @@ namespace YouStartInATavern.Gameplay
                         {
                             if( source.controllerType == ControllerType.Joystick )
                                 GameManager.Instance.inputManager.AssignJoystickToPlayer( nextPlayer, source.controller as Joystick );
-                            else if( source.controllerType == ControllerType.Keyboard || source.controllerType == ControllerType.Mouse )
-                                GameManager.Instance.inputManager.AssignKeyboardAndMouseToPlayer( nextPlayer );
 
                             break;
                         }

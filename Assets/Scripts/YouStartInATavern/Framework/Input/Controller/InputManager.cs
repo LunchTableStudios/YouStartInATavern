@@ -12,6 +12,7 @@ namespace YouStartInATavern.Framework.Input
         {
             assignedJoysticks = new List<int>();
             ResetControllerAssignments();
+            AssignKeyboardAndMouseToPlayer( ReInput.players.GetPlayer( 1 ) ); // First player always has Mouse/Keyboard control
             ReInput.ControllerConnectedEvent += OnControllerConnected;
         }
 
