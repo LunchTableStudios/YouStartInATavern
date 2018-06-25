@@ -3,7 +3,7 @@ using UnityEngine;
 namespace YouStartInATavern
 {
     using Framework.Input;
-    using Gameplay.Player; 
+    using Gameplay.PlayerCharacter; 
 
     public class GameManager : MonoBehaviour
     {
@@ -11,8 +11,8 @@ namespace YouStartInATavern
         public static GameManager Instance{ get; private set; }
 
         #region Public Properties
-        public InputManager input{ get; private set; }
-        public PlayerManager playerManager{ get; private set; }
+        public InputManager inputManager{ get; private set; }
+        public PlayerManager playerManager;
         #endregion
 
         void Awake()
@@ -25,7 +25,8 @@ namespace YouStartInATavern
 
         void Start()
         {
-            input.ResetControllerAssignments();
+            inputManager.Initialize();
+            playerManager.Initialize();
         }
     }
 }

@@ -1,5 +1,6 @@
 namespace YouStartInATavern.Gameplay
 {
+    using System.Collections.Generic;
     using UnityEngine;
     using Rewired;
     using Framework.State;
@@ -9,11 +10,25 @@ namespace YouStartInATavern.Gameplay
     {
         public override void Call( PluggableStateMachine _machine )
         {
-            foreach( Joystick joystick in ReInput.players.GetSystemPlayer().controllers.Joysticks )
+            if( ReInput.players.GetSystemPlayer().GetButtonDown( "Join Game" ) )
             {
-                if( joystick.GetAnyButtonDown() )
+                int nextPlayerID = GameManager.Instance.playerManager.NextInactivePlayer;
+                if( nextPlayerID != -1 )
                 {
-                    
+                    Player nextPlayer = ReInput.players.GetPlayer( nextPlayerID );
+                    IList<InputActionSourceData> inputSources = ReInput.players.GetSystemPlayer().GetCurrentInputSources( "Join Game" );
+                    foreach( InputActionSourceData source in inputSources )
+                    {
+                        if( !GameManager.Instance.inputManager.assignedJoysticks.Contains( source.controller.id ) )
+                        {
+                            if( source.controllerType == ControllerType.Joystick )
+                                GameManager.Instance.inputManager.AssignJoystickToPlayer( nextPlayer, source.controller as Joystick );
+                            else if( source.controllerType == ControllerType.Keyboard || source.controllerType == ControllerType.Mouse )
+                                GameManager.Instance.inputManager.AssignKeyboardAndMouseToPlayer( nextPlayer );
+
+                            break;
+                        }
+                    }
                 }
             }
         }
