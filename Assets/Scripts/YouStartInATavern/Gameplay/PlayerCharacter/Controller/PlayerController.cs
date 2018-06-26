@@ -1,8 +1,8 @@
 namespace YouStartInATavern.Gameplay.PlayerCharacter
 {
+    using UnityEngine;
     using Rewired;
 
-    [ System.Serializable ]
     public class PlayerController
     {
         public int id;
@@ -19,8 +19,12 @@ namespace YouStartInATavern.Gameplay.PlayerCharacter
         public PlayerController( int _id )
         {
             id = _id;
-
             rewiredPlayer = ReInput.players.GetPlayer( id );
+        }
+
+        public void OnUpdate()
+        {
+            
         }
 
     }

@@ -12,7 +12,7 @@ namespace YouStartInATavern
 
         #region Public Properties
         public InputManager inputManager{ get; private set; }
-        public PlayerManager playerManager;
+        public PlayerManager playerManager{ get; private set; }
         #endregion
 
         void Awake()
@@ -25,8 +25,13 @@ namespace YouStartInATavern
 
         void Start()
         {
-            inputManager.Initialize();
-            playerManager.Initialize();
+            inputManager = new InputManager();
+            playerManager = new PlayerManager();
+        }
+
+        void Update()
+        {
+            playerManager.OnUpdate();
         }
     }
 }

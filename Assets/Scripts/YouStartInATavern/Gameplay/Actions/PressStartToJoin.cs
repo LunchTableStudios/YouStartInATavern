@@ -4,6 +4,7 @@ namespace YouStartInATavern.Gameplay
     using UnityEngine;
     using Rewired;
     using Framework.State;
+    using Gameplay.PlayerCharacter;
 
     [ CreateAssetMenu( menuName = "You Start in a Tavern/State Management/Actions/Press Start to Join" ) ]
     public class PressStartToJoinAction : Action

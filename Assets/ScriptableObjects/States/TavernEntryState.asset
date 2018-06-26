@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: TavernEntryState
   m_EditorClassIdentifier: Assembly-CSharp:YouStartInATavern.Framework.State:State
   actions:
-  - {fileID: 11400000, guid: a6188d037f1a8844f91a833b51ab03b1, type: 2}
+  - {fileID: 11400000, guid: e47137290e3504b4a9dc37873d206695, type: 2}

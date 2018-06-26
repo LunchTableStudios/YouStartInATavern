@@ -1,15 +1,10 @@
 namespace YouStartInATavern.Gameplay.PlayerCharacter
 {
+    using UnityEngine;
     using Rewired;
 
-    [ System.Serializable ]
     public class PlayerManager
     {
-
-        #region Inspector Properties
-        public int maxPlayers = 1;
-        #endregion
-
         #region Public Properties
         public int NextInactivePlayer
         {
@@ -25,13 +20,21 @@ namespace YouStartInATavern.Gameplay.PlayerCharacter
 
         private PlayerController[] players;
 
-        public void Initialize()
+        public PlayerManager()
         {
-            players = new PlayerController[4];
+            players = new PlayerController[ ReInput.players.allPlayerCount - 1 ];
 
             for( int i = 0; i < players.Length; i++ )
             {
                 players[i] = new PlayerController( i );
+            }
+        }
+
+        public void OnUpdate()
+        {
+            foreach( PlayerController player in players )
+            {
+                player.OnUpdate();
             }
         }
         
