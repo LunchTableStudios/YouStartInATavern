@@ -2,9 +2,8 @@ namespace YouStartInATavern.Framework.SceneManagement
 {
     using UnityEngine;
     using LoadScreen;
-    using State;
 
-    public class SceneController : PluggableStateMachine
+    public class SceneController : MonoBehaviour
     {
         void OnEnable()
         {
